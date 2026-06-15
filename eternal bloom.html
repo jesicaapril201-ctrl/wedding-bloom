@@ -212,6 +212,102 @@ to{opacity:.95;transform:translateY(0)}
 }
 </style>
 
+<style id="gallery-premium-fix">
+.gallery{
+  column-count:3 !important;
+  column-gap:16px !important;
+  display:block !important;
+}
+.gallery img{
+  width:100% !important;
+  height:auto !important;
+  margin:0 0 16px 0 !important;
+  display:block;
+  break-inside:avoid;
+  border-radius:22px;
+  opacity:0;
+  transform:translateY(30px) scale(.98);
+  animation:galleryReveal .9s ease forwards;
+  transition:transform .45s ease, box-shadow .45s ease;
+}
+.gallery img:nth-child(2n){animation-delay:.12s}
+.gallery img:nth-child(3n){animation-delay:.24s}
+.gallery img:nth-child(4n){animation-delay:.36s}
+
+.gallery img:hover{
+  transform:translateY(-8px) scale(1.025);
+  box-shadow:0 14px 35px rgba(212,175,55,.28);
+}
+
+@keyframes galleryReveal{
+  from{opacity:0;transform:translateY(30px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(max-width:768px){
+  .gallery{column-count:2 !important;}
+}
+</style>
+
+
+<style id="mobile-optimization-final">
+@media (max-width:768px){
+  body{font-size:16px;}
+  section{padding:50px 14px;}
+  .card{padding:18px;border-radius:20px;}
+  .couple-name{font-size:52px !important;line-height:1.1;}
+  .title{font-size:42px !important;}
+  .quote{font-size:18px;padding:0 8px;}
+  .couple-wrap,
+  .couple-wrap{grid-template-columns:1fr !important;}
+  .heart{display:none !important;}
+  .person{margin-bottom:20px;}
+  .person img{
+    width:min(100%,220px) !important;
+    height:auto !important;
+    aspect-ratio:3/4;
+  }
+  .countdown{gap:10px;}
+  .box{
+    min-width:72px;
+    padding:12px;
+    flex:1 1 calc(50% - 10px);
+  }
+  .box h2{font-size:24px;}
+  .gallery{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px !important;
+    column-count:unset !important;
+  }
+  .gallery img{
+    height:140px !important;
+    object-fit:cover;
+    margin:0 !important;
+  }
+  iframe{height:260px !important;}
+  input,textarea{
+    font-size:16px;
+  }
+  .music-btn{
+    width:50px;
+    height:50px;
+    right:12px;
+    bottom:12px;
+  }
+}
+@media (max-width:480px){
+  .couple-name{font-size:42px !important;}
+  .title{font-size:36px !important;}
+  .gallery{grid-template-columns:1fr !important;}
+  .gallery img{height:auto !important;}
+  .btn{
+    width:100%;
+    max-width:280px;
+  }
+}
+</style>
+
 </head>
 <body>
 
