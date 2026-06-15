@@ -32,191 +32,19 @@ input,textarea{width:100%;padding:12px;border:none;border-radius:10px;margin-top
 .guestbook-item{background:rgba(255,255,255,.08);padding:10px;border-radius:10px;margin-top:10px}
 .music-btn{position:fixed;right:20px;bottom:20px;background:gold;color:#5a0000;border:none;width:55px;height:55px;border-radius:50%;font-size:20px;cursor:pointer}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.couple-wrap{grid-template-columns:1fr auto 1fr;gap:10px}
+@media(max-width:768px){
+.couple-wrap{grid-template-columns:1fr}
 .heart{display:none}
 .gallery{column-count:2}
-.couple-name{font-size:65px}.person img{width:140px;height:180px}.person h2{font-size:22px}
-}
-
-
-.instagram-link{
-display:inline-block;
-margin-top:10px;
-padding:8px 16px;
-border-radius:30px;
-background:rgba(212,175,55,.15);
-border:1px solid rgba(255,215,0,.4);
-color:gold;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
-}
-.instagram-link:hover{transform:translateY(-2px) scale(1.05)}
-.person{
-animation:slideIn .9s ease both;
-}
-.person:first-child{animation-delay:.2s}
-.person:last-child{animation-delay:.5s}
-@keyframes slideIn{
-from{opacity:0;transform:translateX(60px)}
-to{opacity:1;transform:translateX(0)}
-}
-.person:first-child{
-animation-name:slideLeft;
-}
-@keyframes slideLeft{
-from{opacity:0;transform:translateX(-60px)}
-to{opacity:1;transform:translateX(0)}
-}
-.couple-wrap{
-grid-template-columns:1fr 120px 1fr !important;
-align-items:center;
-}
-.person img{
-margin:auto;
-display:block;
-}
-@media(max-width:768px){
-.couple-wrap{grid-template-columns:1fr 60px 1fr !important;}
-.person img{width:130px;height:170px}
-.person p{font-size:13px}
-}
-
-
-.gallery{
-display:grid !important;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-column-count:unset !important;
-}
-.gallery img{
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:18px;
-transition:transform .35s ease, box-shadow .35s ease, opacity .35s ease;
-opacity:.95;
-}
-.gallery img:hover{
-transform:translateY(-6px) scale(1.02);
-opacity:1;
-box-shadow:0 10px 25px rgba(212,175,55,.35);
-}
-.gallery img{
-animation:fadeGallery .8s ease both;
-}
-@keyframes fadeGallery{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:.95;transform:translateY(0)}
-}
-@media(max-width:768px){
-.gallery{grid-template-columns:repeat(2,1fr)!important;}
-.gallery img{height:180px;}
-}
-
-</style>
-
-<style id="gallery-premium-fix">
-.gallery{
-  column-count:3 !important;
-  column-gap:16px !important;
-  display:block !important;
-}
-.gallery img{
-  width:100% !important;
-  height:auto !important;
-  margin:0 0 16px 0 !important;
-  display:block;
-  break-inside:avoid;
-  border-radius:22px;
-  opacity:0;
-  transform:translateY(30px) scale(.98);
-  animation:galleryReveal .9s ease forwards;
-  transition:transform .45s ease, box-shadow .45s ease;
-}
-.gallery img:nth-child(2n){animation-delay:.12s}
-.gallery img:nth-child(3n){animation-delay:.24s}
-.gallery img:nth-child(4n){animation-delay:.36s}
-
-.gallery img:hover{
-  transform:translateY(-8px) scale(1.025);
-  box-shadow:0 14px 35px rgba(212,175,55,.28);
-}
-
-@keyframes galleryReveal{
-  from{opacity:0;transform:translateY(30px) scale(.98)}
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-
-@media(max-width:768px){
-  .gallery{column-count:2 !important;}
+.couple-name{font-size:65px}
 }
 </style>
-
-
-<style id="mobile-optimization-final">
-@media (max-width:768px){
-  body{font-size:16px;}
-  section{padding:50px 14px;}
-  .card{padding:18px;border-radius:20px;}
-  .couple-name{font-size:52px !important;line-height:1.1;}
-  .title{font-size:42px !important;}
-  .quote{font-size:18px;padding:0 8px;}
-  .couple-wrap,
-  .couple-wrap{grid-template-columns:1fr !important;}
-  .heart{display:none !important;}
-  .person{margin-bottom:20px;}
-  .person img{
-    width:min(100%,220px) !important;
-    height:auto !important;
-    aspect-ratio:3/4;
-  }
-  .countdown{gap:10px;}
-  .box{
-    min-width:72px;
-    padding:12px;
-    flex:1 1 calc(50% - 10px);
-  }
-  .box h2{font-size:24px;}
-  .gallery{
-    display:grid !important;
-    grid-template-columns:1fr 1fr !important;
-    gap:10px !important;
-    column-count:unset !important;
-  }
-  .gallery img{
-    height:140px !important;
-    object-fit:cover;
-    margin:0 !important;
-  }
-  iframe{height:260px !important;}
-  input,textarea{
-    font-size:16px;
-  }
-  .music-btn{
-    width:50px;
-    height:50px;
-    right:12px;
-    bottom:12px;
-  }
-}
-@media (max-width:480px){
-  .couple-name{font-size:42px !important;}
-  .title{font-size:36px !important;}
-  .gallery{grid-template-columns:1fr !important;}
-  .gallery img{height:auto !important;}
-  .btn{
-    width:100%;
-    max-width:280px;
-  }
-}
-</style>
-
 </head>
 <body>
 
-<audio id="music" loop preload="auto" autoplay>
+<audio id="music" loop>
 <source src="ssstik.io_1781491182062.mp3" type="audio/mpeg">
+<audio id="music" loop preload="auto"></audio>
 </audio>
 
 <div class="cover" id="cover">
@@ -233,19 +61,9 @@ to{opacity:.95;transform:translateY(0)}
 <div class="title">Bride & Groom</div>
 <div class="card">
 <div class="couple-wrap">
-<div class="person">
-<img src="jeno.jpg">
-<h2>Jeno</h2>
-<a class="instagram-link" href="https://www.instagram.com/leejen_o_423?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a>
-<p>Putra dari Lee Hyun Soo & Kim Ji Yeon</p>
-</div>
+<div class="person"><img src="jeno.jpg"><h2>Jeno</h2><p>Putra dari Lee Hyun Soo & Kim Ji Yeon</p></div>
 <div class="heart">&</div>
-<div class="person">
-<img src="karina.jpg">
-<h2>Karina</h2>
-<a class="instagram-link" href="https://www.instagram.com/katarinabluu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a>
-<p>Putri dari Park Dong Hyun & Choi Soo Min</p>
-</div>
+<div class="person"><img src="karina.jpg"><h2>Karina</h2><p>Putri dari Park Dong Hyun & Choi Soo Min</p></div>
 </div>
 </div>
 </section>
@@ -259,9 +77,6 @@ Apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.
 
 <section>
 <div class="title">Countdown</div>
-<div style="text-align:center;margin-bottom:25px;font-size:28px;color:gold;">
-Selasa, 7 Juli 2026 • 15.00 WIB
-</div>
 <div class="countdown">
 <div class="box"><h2 id="days">0</h2>Hari</div>
 <div class="box"><h2 id="hours">0</h2>Jam</div>
@@ -280,7 +95,7 @@ Selasa, 7 Juli 2026 • 15.00 WIB
 </section>
 
 <section>
-<div class="title">Gallery</div><p style="text-align:center;color:#f3d77a;margin-bottom:20px">Our Precious Moments Together ✨</p>
+<div class="title">Gallery</div>
 <div class="card">
 <div class="gallery">
 <img src="jenokarina1.jpg" onclick="showImg(this.src)">
@@ -292,7 +107,6 @@ Selasa, 7 Juli 2026 • 15.00 WIB
 <img src="jenokarina7.jpg" onclick="showImg(this.src)">
 <img src="jenokarina8.jpg" onclick="showImg(this.src)">
 <img src="jenokarina9.jpg" onclick="showImg(this.src)">
-<img src="jenokarina10.jpg" onclick="showImg(this.src)">
 </div>
 </div>
 </section>
@@ -346,17 +160,9 @@ function openInvitation(){
   const music = document.getElementById('music');
   music.play().catch(err => console.log(err));
 }
-function toggleMusic(){
-  const music=document.getElementById('music');
-  if(music.paused){music.play();}else{music.pause();}
-}
-function showImg(src){
-  document.getElementById('lightbox').style.display='flex';
-  document.getElementById('bigImg').src=src;
-}
-function hideImg(){
-  document.getElementById('lightbox').style.display='none';
-}
+function toggleMusic(){music.paused?music.play():music.pause()}
+function showImg(src){lightbox.style.display='flex';bigImg.src=src}
+function hideImg(){lightbox.style.display='none'}
 function copyRekening(){
 navigator.clipboard.writeText(document.getElementById('rekening').innerText);
 document.getElementById('copyText').innerHTML='✓ Account Number Copied';
@@ -381,22 +187,6 @@ localStorage.setItem('ucapan',JSON.stringify(data));
 nama.value='';pesan.value='';render();
 }
 render();
-
-window.addEventListener('load', ()=>{
-  const music=document.getElementById('music');
-  if(music){
-    music.volume=0.7;
-    music.play().catch(()=>{});
-  }
-});
-
-document.addEventListener('click', ()=>{
-  const music=document.getElementById('music');
-  if(music && music.paused){
-    music.play().catch(()=>{});
-  }
-},{once:true});
-
 </script>
 </body>
 </html>
