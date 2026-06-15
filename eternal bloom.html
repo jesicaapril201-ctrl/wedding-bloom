@@ -292,6 +292,7 @@ Selasa, 7 Juli 2026 • 15.00 WIB
 <img src="jenokarina7.jpg" onclick="showImg(this.src)">
 <img src="jenokarina8.jpg" onclick="showImg(this.src)">
 <img src="jenokarina9.jpg" onclick="showImg(this.src)">
+<img src="jenokarina10.jpg" onclick="showImg(this.src)">
 </div>
 </div>
 </section>
@@ -377,10 +378,7 @@ function kirimUcapan(){
 let data=JSON.parse(localStorage.getItem('ucapan')||'[]');
 data.unshift({nama:nama.value,pesan:pesan.value});
 localStorage.setItem('ucapan',JSON.stringify(data));
-nama.value='';pesan.value='';
-localStorage.removeItem('ucapan');
-
-render();
+nama.value='';pesan.value='';render();
 }
 render();
 
