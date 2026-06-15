@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeno & Karina Wedding Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Cormorant Garamond',serif;background:#5a0000;color:#fff;overflow-x:hidden}
+.cover{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),url('cover.jpg') center/cover}
+.couple-name{font-family:'Pinyon Script';font-size:95px;color:gold}
+.btn{background:gold;color:#5a0000;padding:14px 28px;border:none;border-radius:50px;font-weight:bold;cursor:pointer}
+.content{display:none;animation:fadeUp 1s ease}
+section{padding:80px 20px}
+.title{font-family:'Pinyon Script';font-size:60px;color:gold;text-align:center;margin-bottom:25px}
+.card{max-width:1100px;margin:auto;padding:35px;border-radius:28px;background:rgba(255,255,255,.06);backdrop-filter:blur(15px);border:1px solid rgba(255,215,0,.25)}
+.quote{text-align:center;font-size:24px;font-style:italic;max-width:800px;margin:auto}
+.couple-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+.person{text-align:center}
+.person img{width:220px;height:280px;object-fit:cover;border-radius:20px;border:3px solid gold}
+.heart{font-size:70px;color:gold}
+.countdown{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.box{background:linear-gradient(135deg,#d4af37,#b8860b);padding:20px;border-radius:20px;min-width:110px;text-align:center}
+.gallery{column-count:3;column-gap:15px}
+.gallery img{width:100%;margin-bottom:15px;border-radius:18px;cursor:pointer;transition:.4s}
+.gallery img:hover{transform:scale(1.04)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);justify-content:center;align-items:center;z-index:999}
+.lightbox img{max-width:90%;max-height:90%}
+.close{position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer}
+input,textarea{width:100%;padding:12px;border:none;border-radius:10px;margin-top:10px}
+.guestbook-item{background:rgba(255,255,255,.08);padding:10px;border-radius:10px;margin-top:10px}
+.music-btn{position:fixed;right:20px;bottom:20px;background:gold;color:#5a0000;border:none;width:55px;height:55px;border-radius:50%;font-size:20px;cursor:pointer}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.couple-wrap{grid-template-columns:1fr auto 1fr;gap:10px}
+.heart{display:none}
+.gallery{column-count:2}
+.couple-name{font-size:65px}.person img{width:140px;height:180px}.person h2{font-size:22px}
+}
+
+
+.instagram-link{
+display:inline-block;
+margin-top:10px;
+padding:8px 16px;
+border-radius:30px;
+background:rgba(212,175,55,.15);
+border:1px solid rgba(255,215,0,.4);
+color:gold;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+.instagram-link:hover{transform:translateY(-2px) scale(1.05)}
+.person{
+animation:slideIn .9s ease both;
+}
+.person:first-child{animation-delay:.2s}
+.person:last-child{animation-delay:.5s}
+@keyframes slideIn{
+from{opacity:0;transform:translateX(60px)}
+to{opacity:1;transform:translateX(0)}
+}
+.person:first-child{
+animation-name:slideLeft;
+}
+@keyframes slideLeft{
+from{opacity:0;transform:translateX(-60px)}
+to{opacity:1;transform:translateX(0)}
+}
+.couple-wrap{
+grid-template-columns:1fr 120px 1fr !important;
+align-items:center;
+}
+.person img{
+margin:auto;
+display:block;
+}
+@media(max-width:768px){
+.couple-wrap{grid-template-columns:1fr 60px 1fr !important;}
+.person img{width:130px;height:170px}
+.person p{font-size:13px}
+}
+
+
+.gallery{
+display:grid !important;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+column-count:unset !important;
+}
+.gallery img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:18px;
+transition:transform .35s ease, box-shadow .35s ease, opacity .35s ease;
+opacity:.95;
+}
+.gallery img:hover{
+transform:translateY(-6px) scale(1.02);
+opacity:1;
+box-shadow:0 10px 25px rgba(212,175,55,.35);
+}
+.gallery img{
+animation:fadeGallery .8s ease both;
+}
+@keyframes fadeGallery{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:.95;transform:translateY(0)}
+}
+@media(max-width:768px){
+.gallery{grid-template-columns:repeat(2,1fr)!important;}
+.gallery img{height:180px;}
+}
+
+</style>
+
+<style id="gallery-premium-fix">
+.gallery{
+  column-count:3 !important;
+  column-gap:16px !important;
+  display:block !important;
+}
+.gallery img{
+  width:100% !important;
+  height:auto !important;
+  margin:0 0 16px 0 !important;
+  display:block;
+  break-inside:avoid;
+  border-radius:22px;
+  opacity:0;
+  transform:translateY(30px) scale(.98);
+  animation:galleryReveal .9s ease forwards;
+  transition:transform .45s ease, box-shadow .45s ease;
+}
+.gallery img:nth-child(2n){animation-delay:.12s}
+.gallery img:nth-child(3n){animation-delay:.24s}
+.gallery img:nth-child(4n){animation-delay:.36s}
+
+.gallery img:hover{
+  transform:translateY(-8px) scale(1.025);
+  box-shadow:0 14px 35px rgba(212,175,55,.28);
+}
+
+@keyframes galleryReveal{
+  from{opacity:0;transform:translateY(30px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(max-width:768px){
+  .gallery{column-count:2 !important;}
+}
+</style>
+
+</head>
+<body>
+
+<audio id="music" loop preload="auto" autoplay>
+<source src="ssstik.io_1781491182062.mp3" type="audio/mpeg">
+</audio>
+
+<div class="cover" id="cover">
+<h3>#JenoKarinaEverAfter</h3>
+<div class="couple-name">Jeno & Karina</div><br>
+<button class="btn" onclick="openInvitation()">OPEN INVITATION</button>
+</div>
+
+<div id="content" class="content">
+
+<section><div class="quote">“Di antara jutaan langkah yang saling berpapasan, semesta mempertemukan dua hati untuk berjalan menuju selamanya.”</div></section>
+
+<section>
+<div class="title">Bride & Groom</div>
+<div class="card">
+<div class="couple-wrap">
+<div class="person">
+<img src="jeno.jpg">
+<h2>Jeno</h2>
+<a class="instagram-link" href="https://www.instagram.com/leejen_o_423?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a>
+<p>Putra dari Lee Hyun Soo & Kim Ji Yeon</p>
+</div>
+<div class="heart">&</div>
+<div class="person">
+<img src="karina.jpg">
+<h2>Karina</h2>
+<a class="instagram-link" href="https://www.instagram.com/katarinabluu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a>
+<p>Putri dari Park Dong Hyun & Choi Soo Min</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="card" style="text-align:center">
+<h2>Matius 19:6</h2><br>
+Apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.
+</div>
+</section>
+
+<section>
+<div class="title">Countdown</div>
+<div style="text-align:center;margin-bottom:25px;font-size:28px;color:gold;">
+Selasa, 7 Juli 2026 • 15.00 WIB
+</div>
+<div class="countdown">
+<div class="box"><h2 id="days">0</h2>Hari</div>
+<div class="box"><h2 id="hours">0</h2>Jam</div>
+<div class="box"><h2 id="minutes">0</h2>Menit</div>
+<div class="box"><h2 id="seconds">0</h2>Detik</div>
+</div>
+</section>
+
+<section>
+<div class="title">Our Story</div>
+<div class="card">
+<h2>First Meet</h2><p>A beautiful encounter that began with a simple hello.</p><br>
+<h2>Relationship</h2><p>From friendship to forever.</p><br>
+<h2>Engagement</h2><p>A promise of a lifetime together.</p>
+</div>
+</section>
+
+<section>
+<div class="title">Gallery</div><p style="text-align:center;color:#f3d77a;margin-bottom:20px">Our Precious Moments Together ✨</p>
+<div class="card">
+<div class="gallery">
+<img src="jenokarina1.jpg" onclick="showImg(this.src)">
+<img src="jenokarina2.jpg" onclick="showImg(this.src)">
+<img src="jenokarina3.jpg" onclick="showImg(this.src)">
+<img src="jenokarina4.jpg" onclick="showImg(this.src)">
+<img src="jenokarina5.jpg" onclick="showImg(this.src)">
+<img src="jenokarina6.jpg" onclick="showImg(this.src)">
+<img src="jenokarina7.jpg" onclick="showImg(this.src)">
+<img src="jenokarina8.jpg" onclick="showImg(this.src)">
+<img src="jenokarina9.jpg" onclick="showImg(this.src)">
+<img src="jenokarina10.jpg" onclick="showImg(this.src)">
+</div>
+</div>
+</section>
+
+<section>
+<div class="title">Location</div>
+<div class="card">
+<iframe src="https://www.google.com/maps?q=Bukchon+Hanok+Village&output=embed" width="100%" height="350" style="border:0;border-radius:18px"></iframe>
+<div style="text-align:center;padding-top:20px">
+<h2>Bukchon Hanok Village</h2><br>
+<a class="btn" href="https://maps.app.goo.gl/o8hiL7ub6fokKtMF7" target="_blank">Open Maps</a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="title">Digital Envelope</div>
+<div class="card" style="text-align:center">
+<h3>Bank Account</h3>
+<h1 id="rekening" style="color:gold">03927394648</h1>
+<p>a.n. Jeno</p><br>
+<button class="btn" onclick="copyRekening()">Copy Account Number</button>
+<p id="copyText"></p>
+</div>
+</section>
+
+<section>
+<div class="title">Ucapan & Doa</div>
+<div class="card">
+<input id="nama" placeholder="Nama">
+<textarea id="pesan" placeholder="Tulis ucapan"></textarea><br><br>
+<button class="btn" onclick="kirimUcapan()">Kirim</button>
+<div id="listUcapan"></div>
+</div>
+</section>
+
+</div>
+
+<button class="music-btn" onclick="toggleMusic()">♫</button>
+
+<div class="lightbox" id="lightbox" onclick="hideImg()">
+<span class="close">×</span>
+<img id="bigImg">
+</div>
+
+<script>
+function openInvitation(){
+  document.getElementById('cover').style.display='none';
+  document.getElementById('content').style.display='block';
+
+  const music = document.getElementById('music');
+  music.play().catch(err => console.log(err));
+}
+function toggleMusic(){
+  const music=document.getElementById('music');
+  if(music.paused){music.play();}else{music.pause();}
+}
+function showImg(src){
+  document.getElementById('lightbox').style.display='flex';
+  document.getElementById('bigImg').src=src;
+}
+function hideImg(){
+  document.getElementById('lightbox').style.display='none';
+}
+function copyRekening(){
+navigator.clipboard.writeText(document.getElementById('rekening').innerText);
+document.getElementById('copyText').innerHTML='✓ Account Number Copied';
+}
+const target=new Date("2026-07-07T15:00:00").getTime();
+setInterval(()=>{
+let d=target-Date.now();
+days.innerText=Math.floor(d/86400000);
+hours.innerText=Math.floor((d%86400000)/3600000);
+minutes.innerText=Math.floor((d%3600000)/60000);
+seconds.innerText=Math.floor((d%60000)/1000);
+},1000);
+
+function render(){
+let data=JSON.parse(localStorage.getItem('ucapan')||'[]');
+listUcapan.innerHTML=data.map(x=>`<div class="guestbook-item"><b>${x.nama}</b><br>${x.pesan}</div>`).join('');
+}
+function kirimUcapan(){
+let data=JSON.parse(localStorage.getItem('ucapan')||'[]');
+data.unshift({nama:nama.value,pesan:pesan.value});
+localStorage.setItem('ucapan',JSON.stringify(data));
+nama.value='';pesan.value='';render();
+}
+render();
+
+window.addEventListener('load', ()=>{
+  const music=document.getElementById('music');
+  if(music){
+    music.volume=0.7;
+    music.play().catch(()=>{});
+  }
+});
+
+document.addEventListener('click', ()=>{
+  const music=document.getElementById('music');
+  if(music && music.paused){
+    music.play().catch(()=>{});
+  }
+},{once:true});
+
+</script>
+</body>
+</html>
